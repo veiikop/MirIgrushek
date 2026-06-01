@@ -1,0 +1,146 @@
+USE MirIgrushekDB;
+GO
+
+SET IDENTITY_INSERT dbo.Roles ON;
+INSERT INTO dbo.Roles (RoleId, RoleName) VALUES (1, N'Администратор');
+INSERT INTO dbo.Roles (RoleId, RoleName) VALUES (2, N'Менеджер');
+INSERT INTO dbo.Roles (RoleId, RoleName) VALUES (3, N'Авторизированный клиент');
+SET IDENTITY_INSERT dbo.Roles OFF;
+GO
+
+SET IDENTITY_INSERT dbo.Categories ON;
+INSERT INTO dbo.Categories (CategoryId, CategoryName) VALUES (1, N'Игровой набор');
+INSERT INTO dbo.Categories (CategoryId, CategoryName) VALUES (2, N'Конструктор');
+INSERT INTO dbo.Categories (CategoryId, CategoryName) VALUES (3, N'Детский музыкальный инструмент');
+INSERT INTO dbo.Categories (CategoryId, CategoryName) VALUES (4, N'Машинка');
+SET IDENTITY_INSERT dbo.Categories OFF;
+GO
+
+SET IDENTITY_INSERT dbo.Producers ON;
+INSERT INTO dbo.Producers (ProducerId, ProducerName) VALUES (1, N'ABSпластик');
+INSERT INTO dbo.Producers (ProducerId, ProducerName) VALUES (2, N'BambiniFelici');
+INSERT INTO dbo.Producers (ProducerId, ProducerName) VALUES (3, N'Junion');
+SET IDENTITY_INSERT dbo.Producers OFF;
+GO
+
+SET IDENTITY_INSERT dbo.Suppliers ON;
+INSERT INTO dbo.Suppliers (SupplierId, SupplierName) VALUES (1, N'Pikeshop');
+INSERT INTO dbo.Suppliers (SupplierId, SupplierName) VALUES (2, N'Playbig');
+INSERT INTO dbo.Suppliers (SupplierId, SupplierName) VALUES (3, N'Knauf');
+INSERT INTO dbo.Suppliers (SupplierId, SupplierName) VALUES (4, N'CHILITOY');
+INSERT INTO dbo.Suppliers (SupplierId, SupplierName) VALUES (5, N'Vinylon');
+SET IDENTITY_INSERT dbo.Suppliers OFF;
+GO
+
+SET IDENTITY_INSERT dbo.Units ON;
+INSERT INTO dbo.Units (UnitId, UnitName) VALUES (1, N'шт.');
+SET IDENTITY_INSERT dbo.Units OFF;
+GO
+
+SET IDENTITY_INSERT dbo.OrderStatuses ON;
+INSERT INTO dbo.OrderStatuses (StatusId, StatusName) VALUES (1, N'Новый');
+INSERT INTO dbo.OrderStatuses (StatusId, StatusName) VALUES (2, N'Завершен');
+SET IDENTITY_INSERT dbo.OrderStatuses OFF;
+GO
+
+SET IDENTITY_INSERT dbo.PickupPoints ON;
+INSERT INTO dbo.PickupPoints (PickupPointId, Address) VALUES (1, N'420151, г. Лесной, ул. Вишневая, 32');
+INSERT INTO dbo.PickupPoints (PickupPointId, Address) VALUES (2, N'125061, г. Лесной, ул. Подгорная, 8');
+INSERT INTO dbo.PickupPoints (PickupPointId, Address) VALUES (3, N'630370, г. Лесной, ул. Шоссейная, 24');
+INSERT INTO dbo.PickupPoints (PickupPointId, Address) VALUES (4, N'400562, г. Лесной, ул. Зеленая, 32');
+INSERT INTO dbo.PickupPoints (PickupPointId, Address) VALUES (5, N'614510, г. Лесной, ул. Маяковского, 47');
+INSERT INTO dbo.PickupPoints (PickupPointId, Address) VALUES (6, N'410542, г. Лесной, ул. Светлая, 46');
+INSERT INTO dbo.PickupPoints (PickupPointId, Address) VALUES (7, N'620839, г. Лесной, ул. Цветочная, 8');
+INSERT INTO dbo.PickupPoints (PickupPointId, Address) VALUES (8, N'443890, г. Лесной, ул. Коммунистическая, 1');
+INSERT INTO dbo.PickupPoints (PickupPointId, Address) VALUES (9, N'603379, г. Лесной, ул. Спортивная, 46');
+INSERT INTO dbo.PickupPoints (PickupPointId, Address) VALUES (10, N'603721, г. Лесной, ул. Гоголя, 41');
+INSERT INTO dbo.PickupPoints (PickupPointId, Address) VALUES (11, N'410172, г. Лесной, ул. Северная, 13');
+INSERT INTO dbo.PickupPoints (PickupPointId, Address) VALUES (12, N'614611, г. Лесной, ул. Молодежная, 50');
+INSERT INTO dbo.PickupPoints (PickupPointId, Address) VALUES (13, N'454311, г.Лесной, ул. Новая, 19');
+INSERT INTO dbo.PickupPoints (PickupPointId, Address) VALUES (14, N'660007, г.Лесной, ул. Октябрьская, 19');
+INSERT INTO dbo.PickupPoints (PickupPointId, Address) VALUES (15, N'603036, г. Лесной, ул. Садовая, 4');
+INSERT INTO dbo.PickupPoints (PickupPointId, Address) VALUES (16, N'394060, г.Лесной, ул. Фрунзе, 43');
+INSERT INTO dbo.PickupPoints (PickupPointId, Address) VALUES (17, N'410661, г. Лесной, ул. Школьная, 50');
+INSERT INTO dbo.PickupPoints (PickupPointId, Address) VALUES (18, N'625590, г. Лесной, ул. Коммунистическая, 20');
+INSERT INTO dbo.PickupPoints (PickupPointId, Address) VALUES (19, N'625683, г. Лесной, ул. 8 Марта');
+INSERT INTO dbo.PickupPoints (PickupPointId, Address) VALUES (20, N'450983, г.Лесной, ул. Комсомольская, 26');
+INSERT INTO dbo.PickupPoints (PickupPointId, Address) VALUES (21, N'394782, г. Лесной, ул. Чехова, 3');
+INSERT INTO dbo.PickupPoints (PickupPointId, Address) VALUES (22, N'603002, г. Лесной, ул. Дзержинского, 28');
+INSERT INTO dbo.PickupPoints (PickupPointId, Address) VALUES (23, N'450558, г. Лесной, ул. Набережная, 30');
+INSERT INTO dbo.PickupPoints (PickupPointId, Address) VALUES (24, N'344288, г. Лесной, ул. Чехова, 1');
+INSERT INTO dbo.PickupPoints (PickupPointId, Address) VALUES (25, N'614164, г.Лесной,  ул. Степная, 30');
+INSERT INTO dbo.PickupPoints (PickupPointId, Address) VALUES (26, N'394242, г. Лесной, ул. Коммунистическая, 43');
+INSERT INTO dbo.PickupPoints (PickupPointId, Address) VALUES (27, N'660540, г. Лесной, ул. Солнечная, 25');
+INSERT INTO dbo.PickupPoints (PickupPointId, Address) VALUES (28, N'125837, г. Лесной, ул. Шоссейная, 40');
+INSERT INTO dbo.PickupPoints (PickupPointId, Address) VALUES (29, N'125703, г. Лесной, ул. Партизанская, 49');
+INSERT INTO dbo.PickupPoints (PickupPointId, Address) VALUES (30, N'625283, г. Лесной, ул. Победы, 46');
+INSERT INTO dbo.PickupPoints (PickupPointId, Address) VALUES (31, N'614753, г. Лесной, ул. Полевая, 35');
+INSERT INTO dbo.PickupPoints (PickupPointId, Address) VALUES (32, N'426030, г. Лесной, ул. Маяковского, 44');
+INSERT INTO dbo.PickupPoints (PickupPointId, Address) VALUES (33, N'450375, г. Лесной ул. Клубная, 44');
+INSERT INTO dbo.PickupPoints (PickupPointId, Address) VALUES (34, N'625560, г. Лесной, ул. Некрасова, 12');
+INSERT INTO dbo.PickupPoints (PickupPointId, Address) VALUES (35, N'630201, г. Лесной, ул. Комсомольская, 17');
+INSERT INTO dbo.PickupPoints (PickupPointId, Address) VALUES (36, N'190949, г. Лесной, ул. Мичурина, 26');
+SET IDENTITY_INSERT dbo.PickupPoints OFF;
+GO
+
+SET IDENTITY_INSERT dbo.Users ON;
+INSERT INTO dbo.Users (UserId, RoleId, FullName, Login, Password) VALUES (1, 1, N'Ворсин Петр Евгеньевич', N'94d5ous@gmail.com', N'uzWC67');
+INSERT INTO dbo.Users (UserId, RoleId, FullName, Login, Password) VALUES (2, 1, N'Старикова Елена Павловна', N'uth4iz@mail.com', N'2L6KZG');
+INSERT INTO dbo.Users (UserId, RoleId, FullName, Login, Password) VALUES (3, 1, N'Одинцов Серафим Артёмович', N'yzls62@outlook.com', N'JlFRCZ');
+INSERT INTO dbo.Users (UserId, RoleId, FullName, Login, Password) VALUES (4, 2, N'Михайлюк Анна Вячеславовна', N'1diph5e@tutanota.com', N'8ntwUp');
+INSERT INTO dbo.Users (UserId, RoleId, FullName, Login, Password) VALUES (5, 2, N'Ситдикова Елена Анатольевна', N'tjde7c@yahoo.com', N'YOyhfR');
+INSERT INTO dbo.Users (UserId, RoleId, FullName, Login, Password) VALUES (6, 2, N'Никифорова Весения Николаевна', N'wpmrc3do@tutanota.com', N'RSbvHv');
+INSERT INTO dbo.Users (UserId, RoleId, FullName, Login, Password) VALUES (7, 3, N'Степанов Михаил Артёмович', N'5d4zbu@tutanota.com', N'rwVDh9');
+INSERT INTO dbo.Users (UserId, RoleId, FullName, Login, Password) VALUES (8, 3, N'Ворсин Петр Евгеньевич', N'ptec8ym@yahoo.com', N'LdNyos');
+INSERT INTO dbo.Users (UserId, RoleId, FullName, Login, Password) VALUES (9, 3, N'Старикова Елена Павловна', N'1qz4kw@mail.com', N'gynQMT');
+INSERT INTO dbo.Users (UserId, RoleId, FullName, Login, Password) VALUES (10, 3, N'Сазонов Руслан Германович', N'4np6se@mail.com', N'AtnDjr');
+SET IDENTITY_INSERT dbo.Users OFF;
+GO
+
+INSERT INTO dbo.Products (Article, ProductName, CategoryId, ProducerId, SupplierId, UnitId, Price, Discount, StockQuantity, Description, PhotoPath) VALUES (N'PMEZMH', N'Детский игровой набор машинок Щенячий патруль / Dogs mini . 9 героев + 9 инерфионных машинок', 1, 1, 1, 1, 1414, 22, 50, N'Детский набор машинок с героями мультсериала «Щенячий патруль» подойдет как для мальчиков, так и для девочек. В детский набор входит 9 фигурок щенков спасателей.', N'Images\\1.jpg');
+INSERT INTO dbo.Products (Article, ProductName, CategoryId, ProducerId, SupplierId, UnitId, Price, Discount, StockQuantity, Description, PhotoPath) VALUES (N'BPV4MM', N'Конструктор Гарри Поттер Сова Букля 630 деталей совместим с lego harry potter, лего совместимый)', 2, 1, 2, 1, 771, 15, 26, N'Коллекционная модель Букля состоит из множества потрясающих элементов, а также специального механизма внутри. С его помощью можно плавно поднимать-опускать крылья птицы.', N'Images\\2.jpg');
+INSERT INTO dbo.Products (Article, ProductName, CategoryId, ProducerId, SupplierId, UnitId, Price, Discount, StockQuantity, Description, PhotoPath) VALUES (N'JVL42J', N'Музыкальные инструменты для детей, ксилофон, барабаны, развивающие игрушки, игрушки для детей', 3, 2, 2, 1, 2750, 15, 0, N'Откройте мир музыки для вашего ребенка с этой уникальной игрушкой! Это многофункциональное музыкальное чудо объединяет в себе всё, что нужно для творческого развития.', N'Images\\3.jpg');
+INSERT INTO dbo.Products (Article, ProductName, CategoryId, ProducerId, SupplierId, UnitId, Price, Discount, StockQuantity, Description, PhotoPath) VALUES (N'F895RB', N'Машинка игрушка диско шар светящаяся музыкальная', 4, 1, 3, 1, 368, 6, 7, N'Светящаяся музыкальная машина с диско шаром переливается разными цветами, играет ритмичные мелодии, объезжает препятствия и крутится, поэтому с ней точно не будет скучно.', N'Images\\4.jpg');
+INSERT INTO dbo.Products (Article, ProductName, CategoryId, ProducerId, SupplierId, UnitId, Price, Discount, StockQuantity, Description, PhotoPath) VALUES (N'3XBOTN', N'Игровой набор Hot Wheels Action Loop Cyclone Challenge Track, с машинкой и удобным хранением, HTK16', 1, 2, 3, 1, 3426, 10, 21, N'Игровой набор Hot Wheels Action Loop Cyclone Challenge Track - это уникальная игра, которая позволит вам испытать себя и своих друзей в скорости и ловкости. Этот набор состоит из металлической дорожки с циклоном, которая создает потрясающий эффект и добавляет дополнительную сложность в игру.', N'Images\\5.jpg');
+INSERT INTO dbo.Products (Article, ProductName, CategoryId, ProducerId, SupplierId, UnitId, Price, Discount, StockQuantity, Description, PhotoPath) VALUES (N'3L7RCZ', N'Игровой набор с деревянными машинками Стройплощадка Кран-Паркс, Junion', 1, 3, 3, 1, 7400, 15, 0, N'Игровой набор «Стройплощадка Кран-Паркс Junion» — это большая игрушечная парковка с деревянными машинками и настоящим подъёмным краном, придуманная в Яндексе настоящими родителями.', N'Images\\6.jpg');
+INSERT INTO dbo.Products (Article, ProductName, CategoryId, ProducerId, SupplierId, UnitId, Price, Discount, StockQuantity, Description, PhotoPath) VALUES (N'S72AM3', N'Синтезатор детский с микрофоном 61 клавиша', 3, 3, 4, 1, 1749, 10, 35, N'Откройте для ребенка дверь в мир музыки с детским синтезатором! Этот компактный инструмент с микрофоном станет верным другом для юных музыкантов, помогая им развивать творческий потенциал и получать удовольствие от игры.', N'Images\\7.jpg');
+INSERT INTO dbo.Products (Article, ProductName, CategoryId, ProducerId, SupplierId, UnitId, Price, Discount, StockQuantity, Description, PhotoPath) VALUES (N'2G3280', N'Деревянный игровой набор JUNION Стройплощадка "Кран-Паркс" с подъёмным, строительным краном и машинками, 18 предметов, подвижные элементы', 1, 3, 5, 1, 1624, 9, 20, N'Игровой набор «Стройплощадка Кран-Паркс Junion» — это большая игрушечная парковка с деревянными машинками и настоящим подъёмным краном, придуманная в Яндексе настоящими родителями.', N'Images\\8.jpg');
+INSERT INTO dbo.Products (Article, ProductName, CategoryId, ProducerId, SupplierId, UnitId, Price, Discount, StockQuantity, Description, PhotoPath) VALUES (N'MIO8YV', N'Музыкальная игрушка интерактивная Пульт, детский прорезыватель для малышей', 3, 2, 5, 1, 305, 9, 31, N'Музыкальная игрушка интерактивная Пульт, детский прорезыватель для малышей', N'Images\\9.jpg');
+INSERT INTO dbo.Products (Article, ProductName, CategoryId, ProducerId, SupplierId, UnitId, Price, Discount, StockQuantity, Description, PhotoPath) VALUES (N'UER2QD', N'Большой набор опытов и экспериментов для детей 14 в 1', 1, 2, 5, 1, 2506, 8, 27, N'Большой набор опытов и экспериментов для детей 14 в 1', N'Images\\10.jpg');
+GO
+
+SET IDENTITY_INSERT dbo.Orders ON;
+INSERT INTO dbo.Orders (OrderId, OrderArticle, OrderDate, DeliveryDate, PickupPointId, ClientUserId, ReceiveCode, StatusId) VALUES (1, N'PMEZMH, 2, BPV4MM, 2', '2025-02-27', '2025-04-20', 1, 7, 901, 2);
+INSERT INTO dbo.Orders (OrderId, OrderArticle, OrderDate, DeliveryDate, PickupPointId, ClientUserId, ReceiveCode, StatusId) VALUES (2, N'JVL42J, 1, F895RB, 1', '2024-09-28', '2025-04-21', 11, 1, 902, 2);
+INSERT INTO dbo.Orders (OrderId, OrderArticle, OrderDate, DeliveryDate, PickupPointId, ClientUserId, ReceiveCode, StatusId) VALUES (3, N'3XBOTN, 10, 3L7RCZ, 10', '2025-03-21', '2025-04-22', 2, 2, 903, 2);
+INSERT INTO dbo.Orders (OrderId, OrderArticle, OrderDate, DeliveryDate, PickupPointId, ClientUserId, ReceiveCode, StatusId) VALUES (4, N'S72AM3, 5, 2G3280, 4', '2025-02-20', '2025-04-23', 11, 10, 904, 2);
+INSERT INTO dbo.Orders (OrderId, OrderArticle, OrderDate, DeliveryDate, PickupPointId, ClientUserId, ReceiveCode, StatusId) VALUES (5, N'MIO8YV, 2, UER2QD, 2', '2025-03-17', '2025-04-24', 2, 7, 905, 2);
+INSERT INTO dbo.Orders (OrderId, OrderArticle, OrderDate, DeliveryDate, PickupPointId, ClientUserId, ReceiveCode, StatusId) VALUES (6, N'PMEZMH, 2, BPV4MM, 2', '2025-03-01', '2025-04-25', 15, 1, 906, 2);
+INSERT INTO dbo.Orders (OrderId, OrderArticle, OrderDate, DeliveryDate, PickupPointId, ClientUserId, ReceiveCode, StatusId) VALUES (7, N'JVL42J, 1, F895RB, 1', '2025-02-28', '2025-04-26', 3, 2, 907, 2);
+INSERT INTO dbo.Orders (OrderId, OrderArticle, OrderDate, DeliveryDate, PickupPointId, ClientUserId, ReceiveCode, StatusId) VALUES (8, N'3XBOTN, 10, 3L7RCZ, 10', '2025-03-31', '2025-04-27', 19, 10, 908, 1);
+INSERT INTO dbo.Orders (OrderId, OrderArticle, OrderDate, DeliveryDate, PickupPointId, ClientUserId, ReceiveCode, StatusId) VALUES (9, N'S72AM3, 5, 2G3280, 4', '2025-04-02', '2025-04-28', 5, 2, 909, 1);
+INSERT INTO dbo.Orders (OrderId, OrderArticle, OrderDate, DeliveryDate, PickupPointId, ClientUserId, ReceiveCode, StatusId) VALUES (10, N'MIO8YV, 2, UER2QD, 2', '2025-04-03', '2025-04-29', 19, 10, 910, 1);
+SET IDENTITY_INSERT dbo.Orders OFF;
+GO
+
+INSERT INTO dbo.OrderItems (OrderId, Article, Quantity) VALUES (1, N'PMEZMH', 2);
+INSERT INTO dbo.OrderItems (OrderId, Article, Quantity) VALUES (1, N'BPV4MM', 2);
+INSERT INTO dbo.OrderItems (OrderId, Article, Quantity) VALUES (2, N'JVL42J', 1);
+INSERT INTO dbo.OrderItems (OrderId, Article, Quantity) VALUES (2, N'F895RB', 1);
+INSERT INTO dbo.OrderItems (OrderId, Article, Quantity) VALUES (3, N'3XBOTN', 10);
+INSERT INTO dbo.OrderItems (OrderId, Article, Quantity) VALUES (3, N'3L7RCZ', 10);
+INSERT INTO dbo.OrderItems (OrderId, Article, Quantity) VALUES (4, N'S72AM3', 5);
+INSERT INTO dbo.OrderItems (OrderId, Article, Quantity) VALUES (4, N'2G3280', 4);
+INSERT INTO dbo.OrderItems (OrderId, Article, Quantity) VALUES (5, N'MIO8YV', 2);
+INSERT INTO dbo.OrderItems (OrderId, Article, Quantity) VALUES (5, N'UER2QD', 2);
+INSERT INTO dbo.OrderItems (OrderId, Article, Quantity) VALUES (6, N'PMEZMH', 2);
+INSERT INTO dbo.OrderItems (OrderId, Article, Quantity) VALUES (6, N'BPV4MM', 2);
+INSERT INTO dbo.OrderItems (OrderId, Article, Quantity) VALUES (7, N'JVL42J', 1);
+INSERT INTO dbo.OrderItems (OrderId, Article, Quantity) VALUES (7, N'F895RB', 1);
+INSERT INTO dbo.OrderItems (OrderId, Article, Quantity) VALUES (8, N'3XBOTN', 10);
+INSERT INTO dbo.OrderItems (OrderId, Article, Quantity) VALUES (8, N'3L7RCZ', 10);
+INSERT INTO dbo.OrderItems (OrderId, Article, Quantity) VALUES (9, N'S72AM3', 5);
+INSERT INTO dbo.OrderItems (OrderId, Article, Quantity) VALUES (9, N'2G3280', 4);
+INSERT INTO dbo.OrderItems (OrderId, Article, Quantity) VALUES (10, N'MIO8YV', 2);
+INSERT INTO dbo.OrderItems (OrderId, Article, Quantity) VALUES (10, N'UER2QD', 2);
+GO

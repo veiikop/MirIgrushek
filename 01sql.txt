@@ -1,0 +1,142 @@
+
+IF DB_ID('MirIgrushekDB') IS NULL
+    CREATE DATABASE MirIgrushekDB;
+GO
+
+USE MirIgrushekDB;
+GO
+
+IF OBJECT_ID('dbo.OrderItems','U')    IS NOT NULL DROP TABLE dbo.OrderItems;
+IF OBJECT_ID('dbo.Orders','U')        IS NOT NULL DROP TABLE dbo.Orders;
+IF OBJECT_ID('dbo.Products','U')      IS NOT NULL DROP TABLE dbo.Products;
+IF OBJECT_ID('dbo.Users','U')         IS NOT NULL DROP TABLE dbo.Users;
+IF OBJECT_ID('dbo.PickupPoints','U')  IS NOT NULL DROP TABLE dbo.PickupPoints;
+IF OBJECT_ID('dbo.OrderStatuses','U') IS NOT NULL DROP TABLE dbo.OrderStatuses;
+IF OBJECT_ID('dbo.Units','U')         IS NOT NULL DROP TABLE dbo.Units;
+IF OBJECT_ID('dbo.Suppliers','U')     IS NOT NULL DROP TABLE dbo.Suppliers;
+IF OBJECT_ID('dbo.Producers','U')     IS NOT NULL DROP TABLE dbo.Producers;
+IF OBJECT_ID('dbo.Categories','U')    IS NOT NULL DROP TABLE dbo.Categories;
+IF OBJECT_ID('dbo.Roles','U')         IS NOT NULL DROP TABLE dbo.Roles;
+GO
+
+
+CREATE TABLE dbo.Roles (
+    RoleId   INT IDENTITY(1,1) NOT NULL,
+    RoleName NVARCHAR(50)      NOT NULL,
+    CONSTRAINT PK_Roles PRIMARY KEY (RoleId),
+    CONSTRAINT UQ_Roles_Name UNIQUE (RoleName)
+);
+GO
+
+CREATE TABLE dbo.Categories (
+    CategoryId   INT IDENTITY(1,1) NOT NULL,
+    CategoryName NVARCHAR(100)     NOT NULL,
+    CONSTRAINT PK_Categories PRIMARY KEY (CategoryId),
+    CONSTRAINT UQ_Categories_Name UNIQUE (CategoryName)
+);
+GO
+
+CREATE TABLE dbo.Producers (
+    ProducerId   INT IDENTITY(1,1) NOT NULL,
+    ProducerName NVARCHAR(100)     NOT NULL,
+    CONSTRAINT PK_Producers PRIMARY KEY (ProducerId),
+    CONSTRAINT UQ_Producers_Name UNIQUE (ProducerName)
+);
+GO
+
+CREATE TABLE dbo.Suppliers (
+    SupplierId   INT IDENTITY(1,1) NOT NULL,
+    SupplierName NVARCHAR(100)     NOT NULL,
+    CONSTRAINT PK_Suppliers PRIMARY KEY (SupplierId),
+    CONSTRAINT UQ_Suppliers_Name UNIQUE (SupplierName)
+);
+GO
+
+CREATE TABLE dbo.Units (
+    UnitId   INT IDENTITY(1,1) NOT NULL,
+    UnitName NVARCHAR(20)      NOT NULL,
+    CONSTRAINT PK_Units PRIMARY KEY (UnitId),
+    CONSTRAINT UQ_Units_Name UNIQUE (UnitName)
+);
+GO
+
+CREATE TABLE dbo.OrderStatuses (
+    StatusId   INT IDENTITY(1,1) NOT NULL,
+    StatusName NVARCHAR(50)      NOT NULL,
+    CONSTRAINT PK_OrderStatuses PRIMARY KEY (StatusId),
+    CONSTRAINT UQ_OrderStatuses_Name UNIQUE (StatusName)
+);
+GO
+
+CREATE TABLE dbo.PickupPoints (
+    PickupPointId INT IDENTITY(1,1) NOT NULL,
+    Address       NVARCHAR(250)     NOT NULL,
+    CONSTRAINT PK_PickupPoints PRIMARY KEY (PickupPointId)
+);
+GO
+
+CREATE TABLE dbo.Users (
+    UserId   INT IDENTITY(1,1) NOT NULL,
+    RoleId   INT               NOT NULL,
+    FullName NVARCHAR(150)     NOT NULL,
+    Login    NVARCHAR(100)     NOT NULL,
+    Password NVARCHAR(100)     NOT NULL,
+    CONSTRAINT PK_Users PRIMARY KEY (UserId),
+    CONSTRAINT UQ_Users_Login UNIQUE (Login),
+    CONSTRAINT FK_Users_Roles FOREIGN KEY (RoleId) REFERENCES dbo.Roles(RoleId)
+);
+GO
+
+
+CREATE TABLE dbo.Products (
+    Article       NVARCHAR(20)  NOT NULL,
+    ProductName   NVARCHAR(300) NOT NULL,
+    CategoryId    INT           NOT NULL,
+    ProducerId    INT           NOT NULL,
+    SupplierId    INT           NOT NULL,
+    UnitId        INT           NOT NULL,
+    Price         DECIMAL(10,2) NOT NULL,
+    Discount      INT           NOT NULL CONSTRAINT DF_Products_Discount DEFAULT(0),
+    StockQuantity INT           NOT NULL CONSTRAINT DF_Products_Stock DEFAULT(0),
+    Description   NVARCHAR(MAX) NULL,
+    PhotoPath     NVARCHAR(260) NULL,
+    CONSTRAINT PK_Products PRIMARY KEY (Article),
+    CONSTRAINT FK_Products_Categories FOREIGN KEY (CategoryId) REFERENCES dbo.Categories(CategoryId),
+    CONSTRAINT FK_Products_Producers  FOREIGN KEY (ProducerId) REFERENCES dbo.Producers(ProducerId),
+    CONSTRAINT FK_Products_Suppliers  FOREIGN KEY (SupplierId) REFERENCES dbo.Suppliers(SupplierId),
+    CONSTRAINT FK_Products_Units      FOREIGN KEY (UnitId)     REFERENCES dbo.Units(UnitId),
+    CONSTRAINT CK_Products_Price    CHECK (Price >= 0),
+    CONSTRAINT CK_Products_Discount CHECK (Discount >= 0 AND Discount <= 100),
+    CONSTRAINT CK_Products_Stock    CHECK (StockQuantity >= 0)
+);
+GO
+
+
+CREATE TABLE dbo.Orders (
+    OrderId       INT IDENTITY(1,1) NOT NULL,
+    OrderArticle  NVARCHAR(200)     NOT NULL,   
+    OrderDate     DATE              NOT NULL,
+    DeliveryDate  DATE              NULL,
+    PickupPointId INT               NOT NULL,
+    ClientUserId  INT               NOT NULL,
+    ReceiveCode   INT               NULL,
+    StatusId      INT               NOT NULL,
+    CONSTRAINT PK_Orders PRIMARY KEY (OrderId),
+    CONSTRAINT FK_Orders_Pickup FOREIGN KEY (PickupPointId) REFERENCES dbo.PickupPoints(PickupPointId),
+    CONSTRAINT FK_Orders_Users  FOREIGN KEY (ClientUserId)  REFERENCES dbo.Users(UserId),
+    CONSTRAINT FK_Orders_Status FOREIGN KEY (StatusId)      REFERENCES dbo.OrderStatuses(StatusId)
+);
+GO
+
+
+CREATE TABLE dbo.OrderItems (
+    OrderItemId INT IDENTITY(1,1) NOT NULL,
+    OrderId     INT               NOT NULL,
+    Article     NVARCHAR(20)      NOT NULL,
+    Quantity    INT               NOT NULL,
+    CONSTRAINT PK_OrderItems PRIMARY KEY (OrderItemId),
+    CONSTRAINT FK_OrderItems_Orders   FOREIGN KEY (OrderId) REFERENCES dbo.Orders(OrderId) ON DELETE CASCADE,
+    CONSTRAINT FK_OrderItems_Products FOREIGN KEY (Article) REFERENCES dbo.Products(Article),
+    CONSTRAINT CK_OrderItems_Qty CHECK (Quantity > 0)
+);
+GO
