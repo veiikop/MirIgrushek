@@ -1,0 +1,54 @@
+<Window x:Class="MirIgrushek.Windows.LoginWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="МирИгрушек — Вход в систему"
+        Height="493" Width="420"
+        WindowStartupLocation="CenterScreen"
+        FontFamily="Arial"
+        Background="{StaticResource MainBackgroundBrush}"
+        ResizeMode="CanMinimize">
+
+    <Grid Margin="24">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <!-- Логотип компании (из ресурсов, без искажения пропорций) -->
+        <Image Grid.Row="0" Source="pack://application:,,,/Resources/logo.png"
+               Height="110" Stretch="Uniform" Margin="0,0,0,16" />
+
+        <TextBlock Grid.Row="1" Text="ООО «МирИгрушек»"
+                   FontSize="20" FontWeight="Bold"
+                   HorizontalAlignment="Center" Margin="0,0,0,20" />
+
+        <!-- Логин -->
+        <StackPanel Grid.Row="2" Margin="0,0,0,12">
+            <TextBlock Text="Логин:" Margin="0,0,0,4" />
+            <TextBox x:Name="LoginTextBox" Height="32" FontSize="14"
+                     VerticalContentAlignment="Center" Padding="6,0" />
+        </StackPanel>
+
+        <!-- Пароль -->
+        <StackPanel Grid.Row="3" Margin="0,0,0,20">
+            <TextBlock Text="Пароль:" Margin="0,0,0,4" />
+            <PasswordBox x:Name="PasswordBox" Height="32" FontSize="14"
+                         VerticalContentAlignment="Center" Padding="6,0" />
+        </StackPanel>
+
+        <!-- Кнопка входа (целевое действие — акцентный цвет) -->
+        <Button Grid.Row="4" Content="Войти" Height="40" FontSize="15"
+                Style="{StaticResource AccentButton}"
+                Click="LoginButton_Click" />
+
+        <!-- Вход в роли гостя -->
+        <Button Grid.Row="5" Content="Войти как гость" Height="36" FontSize="13"
+                Style="{StaticResource StandardButton}"
+                Click="GuestButton_Click" />
+    </Grid>
+</Window>

@@ -1,0 +1,62 @@
+<Window x:Class="MirIgrushek.Windows.OrderEditWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Заказ"
+        Height="560" Width="520"
+        WindowStartupLocation="CenterOwner"
+        FontFamily="Arial"
+        Background="{StaticResource MainBackgroundBrush}"
+        ResizeMode="CanMinimize">
+
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <TextBlock x:Name="HeaderText" Grid.Row="0" Text="Добавление заказа"
+                   FontSize="18" FontWeight="Bold" Margin="0,0,0,16" />
+
+        <StackPanel Grid.Row="1">
+            <TextBlock Text="Артикул заказа:" FontWeight="SemiBold" />
+            <TextBox x:Name="ArticleBox" Height="30" VerticalContentAlignment="Center" Padding="6,0"
+                     ToolTip="Перечислите артикулы и количества, например: PMEZMH, 2, BPV4MM, 1" />
+
+            <TextBlock Text="Статус заказа:" FontWeight="SemiBold" Margin="0,10,0,0" />
+            <ComboBox x:Name="StatusBox" Height="30" />
+
+            <TextBlock Text="Адрес пункта выдачи:" FontWeight="SemiBold" Margin="0,10,0,0" />
+            <ComboBox x:Name="PickupBox" Height="30" />
+
+            <TextBlock Text="Клиент:" FontWeight="SemiBold" Margin="0,10,0,0" />
+            <ComboBox x:Name="ClientBox" Height="30" />
+
+            <Grid Margin="0,10,0,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="12" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <StackPanel Grid.Column="0">
+                    <TextBlock Text="Дата заказа:" FontWeight="SemiBold" />
+                    <DatePicker x:Name="OrderDatePicker" Height="30" />
+                </StackPanel>
+                <StackPanel Grid.Column="2">
+                    <TextBlock Text="Дата выдачи (доставки):" FontWeight="SemiBold" />
+                    <DatePicker x:Name="DeliveryDatePicker" Height="30" />
+                </StackPanel>
+            </Grid>
+
+            <TextBlock Text="Код для получения:" FontWeight="SemiBold" Margin="0,10,0,0" />
+            <TextBox x:Name="CodeBox" Height="30" VerticalContentAlignment="Center" Padding="6,0" />
+        </StackPanel>
+
+        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,16,0,0">
+            <Button Content="Сохранить" Style="{StaticResource AccentButton}"
+                    Width="120" Click="Save_Click" />
+            <Button Content="Назад" Style="{StaticResource StandardButton}"
+                    Width="120" Click="Cancel_Click" />
+        </StackPanel>
+    </Grid>
+</Window>
